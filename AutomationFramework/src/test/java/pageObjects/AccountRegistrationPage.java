@@ -26,7 +26,7 @@ public class AccountRegistrationPage extends BasePage{
     WebElement privacyPolicyCheckbox;
     @FindBy(xpath = "//input[@value='Continue']")
     WebElement continueButton;
-    @FindBy(xpath = "//h1[normalize-space()='Your Account Has Been Created']")
+    @FindBy(xpath = "//h1[normalize-space()='Your Account Has Been Created!']")
     WebElement confirmationMessage;
 
     public void setTxtFirstName(String fname)
@@ -35,7 +35,7 @@ public class AccountRegistrationPage extends BasePage{
     }
     public void setTxtLastName(String lname)
     {
-        txtFirstName.sendKeys(lname);
+        txtLastName.sendKeys(lname);
     }
     public void setTxtEmail(String email)
     {

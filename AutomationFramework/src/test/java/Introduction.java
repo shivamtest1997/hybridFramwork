@@ -30,16 +30,6 @@ public class Introduction {
      *  4)Execution : locally(IDE),remotely(jenkins,docker,seleniumGrid)
      *  5)Maintenance:Global Repositories--github,bitbucket
      */
-    /**
-     *
-     * PageObjects :    ---->  Test cases:
-     *      Base Page          Base Class
-     *      Home Page          Login Test
-     *      Registration Page  Login DDT
-     *      Login Page
-     *      Search Page ...
-     *
-     */
     /** Design :
      *  1.Create Maven Project and add dependency to pom.xml
      *      selenium
@@ -73,8 +63,55 @@ public class Introduction {
      *      1.2 create Page Object classes for HomePage,RegistrationPage under 'pageObjects' package.
      *      (these classes extends from BasePage)
      *      1.3 create AccountRegistrationTest under package 'testCases'
-     *      1.4 create BaseClass under testBase package and copy reusable methods.
+     *      1.4 create 'TestBase' under testCases package and copy reusable methods.
      *      1.5 create reusable methods to generate random numbers and strings in BaseClass.
+     *
+     *  2.Adding Logs to test case(log4j2)
+     *      Logging : record all the events in the form of text
+     *      log levels -- All < trace < debug < info < warn < error < fatal < off
+     *      Appender: decide where to generate logs(console/file)
+     *      loggers : decide what type of logs to generate(All < trace < debug < info < warn < error < fatal < off)
+     *
+     *      2.1 Add log4j2.xml file under src/test/resources
+     *      2.2 update TestBase class
+     *      2.3 Add log statements to AccountRegistrationTest.
+     *
+     *  3. Run Tests on Desired Browser/Cross Browser/Parallel
+     *      3.1 create testng.xml file to run test cases and parameterize browser name and OS to 'TestBase'
+     *          class setup() method
+     *      3.2 update TestBase-->setup() method,launch browser bases on condition.
+     *      3.3 maintain separate testng.xml file to run test on multiple browsers parallel.
+     *
+     *  4. Read Common Values from config.properties file
+     *      4.1 Add config.properties file under src/test/resources
+     *      4.2 update TestBase-->setup() method,add script to load config.properties file.
+     *      4.3 replace hard coded values in test case like url,username,password etc.
+     *  5. Login Test Case
+     *      5.1 create and update page object classes,loginPage,MyAccountPage-new classes
+     *          update HomePage by adding login page link element
+     *      5.2 Create Login Test
+     *      5.3 Add entry testng.xml
+     *  6. Data Driven Login Test
+     *      6.1 prepare test data in Excel,place the Excel file inside testData folder.
+     *      6.2 create ExcelUtility class under utilities package.
+     *      6.3 update page object class MyAccountPage,add logout link element
+     *      6.4 create DataProvider class in utilities package to maintain data providers for data driven tests
+     *      6.5 create LoginDDTTest under testClasses package
+     *      6.6 Add an Entry in testNG.xml file
+     *
+     *  7.Grouping Tests
+     *     7.1 Add all test cases into specific group{Sanity,Regression}
+     *     7.2 Also add TestBase Methods setup() and tearDown() to all groups
+     *     7.3 create testng.xml file to run the groups which we want to execute
+     *
+     *  8.Add Extent Reports
+     *     8.1 create ExtentReportUtility utility class under utility package
+     *     8.2 Add captureScreen() method in TestBase
+     *     8.3 Add ExtentReportUtility(Listener class) entry in testng.xml
+     *     8.4 make sure WebDriver is static in TestBase we refer same driver instance in ExtentReportUtility
+     *
+     *
+     *
      */
 
 
