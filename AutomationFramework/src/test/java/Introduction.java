@@ -110,6 +110,23 @@ public class Introduction {
      *     8.3 Add ExtentReportUtility(Listener class) entry in testng.xml
      *     8.4 make sure WebDriver is static in TestBase we refer same driver instance in ExtentReportUtility
      *
+     *  9.Run Failed Tests
+     *      test-output> testng-failed.xml
+     *  10.Run Tests on Selenium Grid:
+     *      Selenium Grid:
+     *          1.Hub --client>hub (main system where we start execution)
+     *          2.Node -->
+     *
+     *      Grid Setup:
+     *      -Download selenium-server-4.15.0.jar and place in one folder
+     *      -run below command in cmd to start selenium grid
+     *          java -jar selenium-server-4.15.0.jar standalone
+     *      -URL to see sessions http://localhost:4444/
+     *      10.1 Add execution_enc=local/remote in config.properties file
+     *      10.2 update setup() method in the TestBase (capture execution_env from config.properties file
+     *           then add required capabilities of OS&browser in conditions
+     *      10.3
+     *
      *
      *
      */

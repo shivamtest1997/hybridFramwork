@@ -6,7 +6,6 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.apache.commons.mail.DefaultAuthenticator;
-import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.ImageHtmlEmail;
 import org.apache.commons.mail.resolver.DataSourceUrlResolver;
 import org.testng.ITestContext;
@@ -96,11 +95,11 @@ public class ExtentReportManager implements ITestListener {
         extent.flush();  // it will update all above information in report
         String pathOfReport=System.getProperty("user.dir")+"\\reports\\"+reportName;
         File extentReport=new File(pathOfReport);
-        try {
-            Desktop.getDesktop().browse(extentReport.toURI()); // this will open report automatically
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Desktop.getDesktop().browse(extentReport.toURI()); // this will open report automatically
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
 
         // to send report on email
         try{
@@ -110,7 +109,7 @@ public class ExtentReportManager implements ITestListener {
             ImageHtmlEmail email=new ImageHtmlEmail();
             email.setDataSourceResolver(new DataSourceUrlResolver(url));
             email.setHostName("smtp.googlemail.com");
-            email.setSmtpPort(465);
+            email.setSmtpPort(25);
             email.setAuthenticator(new DefaultAuthenticator("shivamtest1997@gmail.com", "Shivam@123"));
             email.setSSLOnConnect(true);
             email.setFrom("shivamtest1997@gmail.com"); //sender
