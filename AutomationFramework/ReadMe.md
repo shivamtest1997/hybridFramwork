@@ -155,6 +155,8 @@ Phases/Stages
                     install maven into system and configure path in environment variables
                     execute command 'mvn clean test' 
        13. push the code to github repository 
-                    1. git init ---creates local repo
-                    2. git add .
-                    
+       14. Executes Test in Jenkins CI 
+                    1. Download jenkins.war file 
+                    2. open CMD and Run war file run commmand : 'java -jar jenkins.war'
+                    3. capture password to unlock jenkins screen from http://localhost:8080
+                  
