@@ -159,4 +159,93 @@ Phases/Stages
                     1. Download jenkins.war file 
                     2. open CMD and Run war file run commmand : 'java -jar jenkins.war'
                     3. capture password to unlock jenkins screen from http://localhost:8080
+
+Framework Explanation 
+
+    My Automation framework is hybrid framework designed to handle UI and API testing effeciently.It integrate multiple
+    design priciples and tools for better maintainability,scalability and resuability 
+    
+    1.We have used Java Language and Maven as build automation tool to design our framework 
+    2.Framework follows Page Object Moadel as dsign pattern to seperate out page classes and test classes this framework
+      consist of multiple packages like src/main/java,src/test/java,src/test/resources
+    3.Each Web Page or feature is represented as java page class which consist of 
+        WebElements: Defined using selenium locators(@FindBy) annotations and 
+        Actions:method encaspulating user interactions to initialize web elements we have used PageFactory class
+        this approach pramotes modularity and simplifies maintainance 
+    4.this framework suppots data driven test where we kept our test cases description,steps and expected result sheet and test data
+        in excel sheet and json files to achieve this we have used combination of apache POI and Fillo and jacson databind dependancy
+    5.This perticular test script developed on the basis of OOPs concept for optimization of project
+    6.This framework extents support for API automation for this we have used RestAssured library 
+    7.This framework consist of utiliy packages to maintain reusable Utility classes like ExtentReport Manager,ExcelUtils ScreenReader etc
+    8.we have config.properties file which consist of frequently used changing data like browser,environment,Url excelSheet name execution type
+    9.we have exntent report as third party tool to support good report of automation execution for this we have used ExtentReport dependancy
+    10.we also have testng.xml file running multiple test cases belongs to different classes and grouping of tests and cross browser testing
+    11.we have pom.xml file where we manage all depencies and plugins to comiple and run project
+    12.This framework incorporate with Spring for dependancy injection to create Objctes of Page classes and utility classes automatically
+        for this we have used @Componant and @Autowired anotation 
+    this is brief about my framework
+
+Framework Explanation:2
+Our automation framework is a hybrid system that supports both UI (Selenium) and API (RestAssured) testing.
+It combines several design principles and tools to ensure better maintainability, scalability, and reusability.
+Let’s go through the key components of the framework.
+
+    1.Language and Build Automation:
+        We use Java as the programming language and Maven as the build automation tool for managing dependencies and project structure.
+
+    2.Page Object Model (POM):
+        We implement the Page Object Model (POM) design pattern, which keeps the page-specific code separated from the test scripts. 
+        This improves the clarity, organization, and maintainability of the tests.
+        The framework consists of multiple packages like:
+            src/main/java
+            src/test/java
+            src/test/resources and few utility packages
+
+    3.src/page/java consists of Page Classes and WebElements:
+        Each web page or feature is represented by a separate Java class.
+        We use Selenium’s @FindBy annotations to define the WebElements (locators) for the page.
+        The PageFactory class is used to initialize these elements, which helps keep the code modular and easier to maintain.
+    4.src/test/java:
+        This directory contains the test classes and essential test components, such as WebEvents and CommonTest, required for executing the tests. 
+    5.Data-Driven Testing:
+        The framework enables data-driven testing by fetching test case descriptions, steps, and expected results from Excel and testd data from JSON files.
+        To handle this, we use dependencies like Apache POI (for Excel), Fillo, and Jackson Databind (for JSON).
+
+    6.Object-Oriented Programming (OOP) Concepts:
+        The framework is designed using object-oriented programming (OOP) principles,
+        such as inheritance and encapsulation, to enhance code reuse and simplify the overall project structure.
+    7.API Testing with RestAssured:
+        For API testing, we use the RestAssured library to send API requests and validate responses.
+
+    8.Utility Classes:
+        We have a set of utility classes stored in a separate package to handle common operations such as:
+            ExtentReports (for generating test reports)
+            ExcelUtils (for handling Excel file operations)
+            ScreenReader (for capturing screenshots)
+
+    9.Configuration File:
+        We store frequently changing data (e.g., browser settings, environment URLs, test data file names)
+        in a config.properties file, making it easy to update and manage.
+
+
+    10.ExtentReports for Reporting:
+        We use ExtentReports for generating rich, detailed reports about the automation test execution, including test results, logs, and screenshots.
+
+    11.TestNG for Test Execution:
+        TestNG is used to manage and execute test cases.
+        The testng.xml file helps in:
+            Running tests from multiple classes
+            Grouping tests (e.g., smoke, regression)
+            Cross-browser testing
+
+    12.Maven for Dependency Management:
+        The pom.xml file is used for managing all project dependencies and plugins (e.g., for Selenium, TestNG, RestAssured).   
+
+    13.Spring for Dependency Injection:
+        Spring is used for dependency injection, which automatically manages the creation and injection of objects for page and utility classes.
+        We use annotations like @Component and @Autowired to automate object creation.
+    14.Test Eexcution
+        The framework supports automated test execution through Jenkins, enabling continuous integration and seamless test runs.
+        We also use Docker to create consistent test environments, ensuring that tests can be executed reliably across different systems and configurations.
+        
                   
