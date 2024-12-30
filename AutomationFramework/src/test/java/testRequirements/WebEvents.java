@@ -1,4 +1,4 @@
-package testCases;
+package testCases.testRequirements;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -25,7 +25,7 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.Properties;
 
-public class TestBase {
+public class WebEvents {
     public static WebDriver driver;
     public Logger logger;
     public Properties prop;
