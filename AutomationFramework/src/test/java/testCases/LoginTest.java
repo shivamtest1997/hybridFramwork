@@ -5,8 +5,9 @@ import org.testng.annotations.Test;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
 import pageObjects.MyAccountPage;
+import testRequirements.WebEvents;
 
-public class LoginTest extends TestBase{
+public class LoginTest extends WebEvents {
 
     @Test(groups = "Sanity")
     public void verifyLogin()
@@ -34,4 +35,5 @@ public class LoginTest extends TestBase{
         logger.info("**Test Case Finished ****");
 
     }
+
 }

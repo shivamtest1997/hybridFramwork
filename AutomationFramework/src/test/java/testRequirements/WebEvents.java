@@ -1,17 +1,18 @@
-package testCases.testRequirements;
+package testRequirements;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.stereotype.Component;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -24,11 +25,12 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.Properties;
-
+@Component
 public class WebEvents {
     public static WebDriver driver;
     public Logger logger;
     public Properties prop;
+    public String action = "";
 
     @Parameters({"os","browser"})
     @BeforeClass(groups =  {"Sanity","Regression","Data-driven"})
@@ -116,6 +118,63 @@ public class WebEvents {
         sourceFile.renameTo(target);
 
         return filePath;
+    }
+
+    /**
+     * Description: Wait for any element to appear on screen and check whether it is clickable.
+     * @param driver
+     * @param locator
+     * @param sClick
+     * @param stepInfo
+     * @return
+     */
+    public WebElement waitForVisibilityAndClick(final WebDriver driver, final By locator, final boolean sClick, final String stepInfo) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+            if (sClick) {
+                try {
+                    return wait.until(ExpectedConditions.elementToBeClickable(locator));
+                } catch (Exception e) {
+                    Assert.fail(locator + "Not Clickable--------Error Message: " + e.getMessage());
+                }
+            }
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+        } catch (Exception e) {
+
+
+            Assert.fail("Not able to find " + locator + "--------Error Message: " + e.getMessage());
+            return null;
+
+        }
+
+    }
+    /**
+     * This method will check whether element is visible or not.
+     *
+     * @param driver
+     * @param locator
+     * @param stepInfo
+     * @return boolean
+     * @throws Exception
+     */
+    public boolean isWebElementVisible(
+            final WebDriver driver, final By locator, final String stepInfo) {
+        action = "Check Element visible: " + locator.toString();
+        System.out.println(action);
+        WebElement element = waitForVisibilityAndClick(driver, locator, false, stepInfo);
+        try {
+            element.isDisplayed();
+
+            return true;
+        } catch (Exception e) {
+            Assert.fail(locator + " Element not found--------Error Message: " + e.getMessage());
+            System.out.println(locator + " Element not found--------Error Message: " + e.getMessage());
+            return false;
+        }
     }
 
 }

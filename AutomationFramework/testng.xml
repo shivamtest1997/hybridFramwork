@@ -8,9 +8,10 @@
         <parameter name="os" value="Windows"></parameter>
         <parameter name="browser" value="Edge"></parameter>
         <classes>
-            <class name="testCases.AccountRegistrationTest"></class>
-            <class name="testCases.LoginTest"></class>
-            <class name="testCases.LoginDDT"></class>
+<!--            <class name="testCases.AccountRegistrationTest"></class>-->
+<!--            <class name="testCases.LoginTest"></class>-->
+<!--            <class name="testCases.LoginDDT"></class>-->
+            <class name="testCases.LoginTestNew"></class>
         </classes>
     </test>
 </suite>

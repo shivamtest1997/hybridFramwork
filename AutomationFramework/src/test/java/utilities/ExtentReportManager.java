@@ -11,12 +11,9 @@ import org.apache.commons.mail.resolver.DataSourceUrlResolver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import testCases.TestBase;
+import testRequirements.WebEvents;
 
-import java.awt.*;
 import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -76,7 +73,7 @@ public class ExtentReportManager implements ITestListener {
 
         //attach screenshot
         try{
-            String imgPath = new TestBase().captureScreenshot(result.getName());
+            String imgPath = new WebEvents().captureScreenshot(result.getName());
             test.addScreenCaptureFromPath(imgPath);
 
         }catch (Exception e)

@@ -4,9 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.AccountRegistrationPage;
 import pageObjects.HomePage;
+import testRequirements.WebEvents;
 
 
-public class AccountRegistrationTest extends TestBase {
+public class AccountRegistrationTest extends WebEvents {
 
     @Test(groups = "Regression")
     public void verifyAccountRegistration()

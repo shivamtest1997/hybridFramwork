@@ -1,14 +1,14 @@
 package testCases;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
 import pageObjects.MyAccountPage;
+import testRequirements.WebEvents;
 import utilities.DataProviders;
 
-public class LoginDDT extends TestBase{
+public class LoginDDT extends WebEvents {
 
     /**
      * Data is valid -->login success-->test pass--logout
