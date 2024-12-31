@@ -35,7 +35,7 @@ public class AccountRegistrationTest extends WebEvents {
             ap.clickContinue();
             logger.info("validate confirmation message");
             String confirmationMsg = ap.getConfirmationMsg();
-            if (confirmationMsg.equals("Been Created!"))
+            if (confirmationMsg.equals("Your Account Has Been Created!"))
             {
                 Assert.assertTrue(true);
             }

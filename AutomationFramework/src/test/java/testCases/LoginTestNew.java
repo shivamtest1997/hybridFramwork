@@ -2,7 +2,6 @@ package testCases;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.stereotype.Component;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -10,12 +9,12 @@ import pageObjects.MyAccountPage;
 import testRequirements.BaseTest;
 import testRequirements.ObjectFactory;
 import testRequirements.WebEvents;
-import utils.PropertyFileReader;
-import utils.TestCaseSheetUtil;
+import utilities.PropertyFileReader;
+import utilities.TestCaseSheetUtil;
 
 import java.io.IOException;
 
-import static utils.TestCaseSheetUtil.readJsonFromFile;
+import static utilities.TestCaseSheetUtil.readJsonFromFile;
 
 public class LoginTestNew extends WebEvents {
     private String stepInfo = "";
